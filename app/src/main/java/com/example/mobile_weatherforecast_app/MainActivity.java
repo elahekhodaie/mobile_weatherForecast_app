@@ -18,16 +18,31 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//        getWeather();
+//
+//
+//    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getWeather();
-
-
+        final EditText simpleEditText = (EditText) findViewById(R.id.cityName);//get the id for edit text
+        Button displayText = (Button) findViewById(R.id.angry_btn);//get the id for button
+        displayText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (simpleEditText.getText().toString() != null)//check whether the entered text is not null
+                {
+                    Toast.makeText(getApplicationContext(), simpleEditText.getText().toString(), Toast.LENGTH_LONG).show();//display the text that you entered in edit text
+                }
+            }
+        });
     }
-
-
 // this function is to get the text field info and start fetching info
 
 public void getWeather(){
