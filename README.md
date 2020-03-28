@@ -1,2 +1,7 @@
 # mobile_weatherForecast_app
-A Simple weather Forecast android app
+This code is a Simple Weather Application for android using mapBox and DarkSky APIs 
+
+team members:
+. elahekhodaie
+. aminravanbakhsh
+. sinaTavakoli
