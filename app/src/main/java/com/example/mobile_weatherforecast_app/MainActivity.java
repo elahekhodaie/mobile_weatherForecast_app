@@ -26,7 +26,12 @@ import org.json.JSONObject;
 // a String which here is a city name and turns it into coordinates
 
 
+//----------------------------------------------------------------------------------------------------
+// keys :
+// geo coding map box secret key is : pk.eyJ1IjoiZWxhaGVraG9kYWllIiwiYSI6ImNrOGJ0YzFsMzBmdHAza3BpNHR1dmdzZnoifQ.Hq12JjRjpv90sGEjOMyy0g
+// dark sky api secret key is :3bed00074e5a1aef2e2cbd65e6dafb77
 
+//----------------------------------------------------------------------------------------------------
 public class MainActivity extends AppCompatActivity {
 
     String textCoordx;
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         showCoordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new GetCoordinates().execute(simpleEditText.getText().toString().replace(" ", "+"));
+                new GetCoordinates().execute(simpleEditText.getText().toString());
             }
         });
 
@@ -114,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             try{
                 String address = strings[0];
                 HttpDataHandler http = new HttpDataHandler();
-                String url = String.format("https://maps.googlepis.com/maps/api/geocode/json?address=%s", address);
+                String url = String.format("https://api.mapbox.com/geocoding/v5/mapbox.places/%s.json?access_token=%s", address);
                 response = http.getHttpData(url);
                 return response;
 
