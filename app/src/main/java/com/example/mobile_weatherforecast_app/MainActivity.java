@@ -2,6 +2,7 @@ package com.example.mobile_weatherforecast_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+   @SuppressLint("StaticFieldLeak")
    private class  GetCoordinates extends AsyncTask<String, Void, String >{
 
 

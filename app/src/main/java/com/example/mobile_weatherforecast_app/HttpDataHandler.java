@@ -7,15 +7,15 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-public class HttpDataHandler {
-    public HttpDataHandler(){
+class HttpDataHandler {
+    HttpDataHandler(){
 
     }
 
 
-    public String getHttpData(String requestURL){
+    String getHttpData(String requestURL){
         URL url;
-        String response = "";
+        StringBuilder response = new StringBuilder();
         try{
             url = new URL(requestURL);
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -30,11 +30,11 @@ public class HttpDataHandler {
                 String line;
                 BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 while((line = br.readLine()) != null){
-                    response += line;
+                    response.append(line);
                 }
             }
             else
-                response ="";
+                response = new StringBuilder();
 
         }catch (ProtocolException e){
             e.printStackTrace();
@@ -46,7 +46,7 @@ public class HttpDataHandler {
             e.printStackTrace();
         }
 
-        return response;
+        return response.toString();
 
 
     }

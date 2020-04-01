@@ -1,6 +1,7 @@
 package com.example.mobile_weatherforecast_app;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -35,6 +36,7 @@ import android.util.Log;
 
 
 //better naming scheme
+@SuppressLint("Registered")
 public class WeatherActivity extends Activity {
 
     private static final String API = " ";
